@@ -140,7 +140,7 @@
                     android:layout_width="27dp"
                     android:layout_height="27dp"
                     android:layout_marginStart="25dp"
-                    android:src="@drawable/ggp" />
+                    android:src="@drawable/img_googelplay" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
                     android:layout_width="27dp"
                     android:layout_height="27dp"
                     android:layout_marginStart="25dp"
-                    android:src="@drawable/share2" />
+                    android:src="@drawable/img_share" />
 
                 <TextView
                     android:layout_width="wrap_content"

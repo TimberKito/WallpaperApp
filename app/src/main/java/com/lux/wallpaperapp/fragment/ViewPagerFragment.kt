@@ -7,15 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.lux.wallpaperapp.R
 import com.lux.wallpaperapp.SetImgActivity
 import com.lux.wallpaperapp.adapter.PagerAdapter
-import com.lux.wallpaperapp.model.WallpaperModel
 import com.lux.wallpaperapp.model.InfoModel
+import com.lux.wallpaperapp.model.WallpaperModel
 
 class ViewPagerFragment(private val wallpaperModel: WallpaperModel) : Fragment() {
 
@@ -29,7 +28,6 @@ class ViewPagerFragment(private val wallpaperModel: WallpaperModel) : Fragment()
         }
 
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cool Wallpapers</string>
+
+    <string name="menu_share">Share</string>
+
+    <string name="menu_rate">Rate Us</string>
+
+    <string name="share_link">https://play.google.com/store/apps/details?id=</string>
+    <string name="load_fail">Loading failed, please go back and try again</string>
+
+    <string name="download_fail">Download failed, please go back and try again</string>
+
+    <string name="set_fail">Setup canceled or failed</string>
+    <string name="set_success">Set wallpaper successfully</string>
+</resources>

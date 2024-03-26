@@ -2,7 +2,6 @@ package com.lux.wallpaperapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,22 +17,20 @@ import com.lux.wallpaperapp.model.WallpaperModel
 
 class ViewPagerFragment(private val wallpaperModel: WallpaperModel) : Fragment() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val mode: List<InfoModel> = wallpaperModel.infoModel.subList(1, 5)
-        for (i in mode) {
-            Log.e("Data", i.preUrl)
-        }
-
+//        for (i in mode) {
+//            Log.e("Data", i.preUrl)
+//        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_thumb, container, false)
+        val view = inflater.inflate(R.layout.fragment_recyclerview, container, false)
 
         // 将RecyclerView绑定fragment
         val infoRecyclerView: RecyclerView = view.findViewById(R.id.info_recycler_view)

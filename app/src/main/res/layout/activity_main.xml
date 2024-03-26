@@ -66,7 +66,7 @@
         <!--抽屉视图-->
         <RelativeLayout
             android:id="@+id/drawer_recycler_view"
-            android:layout_width="260dp"
+            android:layout_width="280dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
             android:background="@color/white">
@@ -166,7 +166,7 @@
                     android:layout_width="27dp"
                     android:layout_height="27dp"
                     android:layout_marginStart="25dp"
-                    android:src="@drawable/img_share" />
+                    android:src="@drawable/svg_share" />
 
                 <TextView
                     android:layout_width="wrap_content"

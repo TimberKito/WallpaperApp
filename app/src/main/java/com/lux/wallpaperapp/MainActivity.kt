@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
         val networkInfo = connectivityManager.activeNetworkInfo
         if (networkInfo != null && networkInfo.isConnected) {
             // 已连接到互联网
-            Log.e("NetworkStatus", "Connected to the Internet")
+            Log.d("NetworkStatus", "Connected to the Internet")
         } else {
             // 未连接到互联网
-            Log.e("NetworkStatus", "Not connected to the Internet")
+            Log.d("NetworkStatus", "Not connected to the Internet")
         }
 
         // 设置Padding上边距留出沉浸式状态栏空间

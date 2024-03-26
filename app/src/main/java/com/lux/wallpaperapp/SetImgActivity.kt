@@ -28,7 +28,6 @@ import java.io.IOException
 class SetImgActivity : AppCompatActivity() {
 
     private lateinit var binding: SetWallpaperBinding
-
     // 原图url
     private lateinit var sourceUrl: String
 
@@ -61,10 +60,11 @@ class SetImgActivity : AppCompatActivity() {
         // 获取图片高清地址
         sourceUrl = infoModel.orgUrl
 
-        Log.e("sourceUrl", sourceUrl)
+//        Log.e("sourceUrl", sourceUrl)
 
         // 加载图片
-        Glide.with(this).load(sourceUrl).diskCacheStrategy(DiskCacheStrategy.NONE)
+        Glide.with(this).load(sourceUrl)
+//            .diskCacheStrategy(DiskCacheStrategy.ALL)
             // 回调方法-关闭加载动画
             .listener(object : RequestListener<Drawable> {
                 override fun onLoadFailed(
@@ -100,7 +100,7 @@ class SetImgActivity : AppCompatActivity() {
      * 设置壁纸
      */
     private fun onClickApply() {
-        Log.e("onClickApply", "设置按钮已被点击")
+//        Log.e("onClickApply", "设置按钮已被点击")
 //        binding.pbProgress.visibility = View.VISIBLE
         binding.coverView.visibility = View.VISIBLE
         // Disable user interaction
@@ -135,7 +135,7 @@ class SetImgActivity : AppCompatActivity() {
             try {
                 bitmap = Glide.with(this@SetImgActivity)
                     .asBitmap()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .load(urlString)
                     .submit()
                     .get()
@@ -180,7 +180,6 @@ class SetImgActivity : AppCompatActivity() {
             }
         }
     }
-
 
     private fun setWallpaper() {
         // 获取 WallpaperManager 实例

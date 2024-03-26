@@ -8,13 +8,16 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.lux.wallpaperapp.R
 import com.lux.wallpaperapp.model.InfoModel
 import com.lux.wallpaperapp.model.WallpaperModel
-
+import com.lux.wallpaperapp.tools.OffSSLTool
+import java.io.InputStream
 
 class PagerAdapter(
     private val context: Context, model: WallpaperModel, private val listener: OnItemClickListener
@@ -48,13 +51,13 @@ class PagerAdapter(
         fun loadItemImg(context: Context, preUrl: String, imageViewThumb: ImageView) {
             // 解决glide加载https证书问题
             try {
-//                Glide.get(context).registry.replace<GlideUrl, InputStream>(
-//                    GlideUrl::class.java, InputStream::class.java,
-//                    OkHttpUrlLoader.Factory(OffSSLTool.getSSLOkHttpClient())
-//                )
+                Glide.get(context).registry.replace<GlideUrl, InputStream>(
+                    GlideUrl::class.java, InputStream::class.java,
+                    OkHttpUrlLoader.Factory(OffSSLTool.getSSLOkHttpClient())
+                )
                 Glide.with(context)
                     .load(preUrl)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+//                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     // 加载占位图
                     .apply(
                         RequestOptions()
@@ -85,31 +88,20 @@ class PagerAdapter(
      * 360x460
      */
     override fun onBindViewHolder(holder: PagerAdapter.ThumbVH, position: Int) {
-//        val infoModel = infoModels[position]
         val infoModel = infoModels[position % infoModels.size]
 
         holder.loadItemImg(context, infoModel.preUrl, holder.imgItemView)
-
-//        if (position == 0) {
-//            holder.imgItemView.setImageResource(R.drawable.item_f)
-//            holder.rootItemLayout.layoutParams.height = 220
-//        }else{
-//            holder.loadItemImg(context, infoModel.orgUrl, holder.imgItemView)
-//        }
 
         // 单个图片的根布局添加点击事件
         holder.rootItemLayout.setOnClickListener() {
             listener.onItemClick(position, infoModel)
         }
-
     }
 
     /**
      * 渲染图片item的数量
      */
     override fun getItemCount(): Int {
-//        return infoModels.size
         return Int.MAX_VALUE
     }
-
 }

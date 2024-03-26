@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.lux.wallpaperapp'
+    namespace 'com.nice.wallpaperapp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.lux.wallpaperapp"
+        applicationId 'com.timberkito.nicewallset'
         minSdk 23
         targetSdk 34
         versionCode 1
@@ -19,7 +19,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

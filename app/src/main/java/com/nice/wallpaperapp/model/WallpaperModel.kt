@@ -1,4 +1,4 @@
-package com.lux.wallpaperapp.model
+package com.nice.wallpaperapp.model
 
 import java.io.Serializable
 class WallpaperModel(

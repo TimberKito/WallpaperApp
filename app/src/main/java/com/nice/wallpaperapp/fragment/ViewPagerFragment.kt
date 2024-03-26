@@ -1,4 +1,4 @@
-package com.lux.wallpaperapp.fragment
+package com.nice.wallpaperapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.lux.wallpaperapp.R
-import com.lux.wallpaperapp.SetImgActivity
-import com.lux.wallpaperapp.adapter.PagerAdapter
-import com.lux.wallpaperapp.model.InfoModel
-import com.lux.wallpaperapp.model.WallpaperModel
+import com.nice.wallpaperapp.R
+import com.nice.wallpaperapp.SetImgActivity
+import com.nice.wallpaperapp.adapter.PagerAdapter
+import com.nice.wallpaperapp.model.InfoModel
+import com.nice.wallpaperapp.model.WallpaperModel
 
 class ViewPagerFragment(private val wallpaperModel: WallpaperModel) : Fragment() {
 

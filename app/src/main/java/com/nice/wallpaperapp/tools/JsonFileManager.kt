@@ -1,7 +1,7 @@
-package com.lux.wallpaperapp.tools
+package com.nice.wallpaperapp.tools
 
-import com.lux.wallpaperapp.model.InfoModel
-import com.lux.wallpaperapp.model.WallpaperModel
+import com.nice.wallpaperapp.model.InfoModel
+import com.nice.wallpaperapp.model.WallpaperModel
 import org.json.JSONArray
 import java.io.BufferedReader
 import java.io.InputStream

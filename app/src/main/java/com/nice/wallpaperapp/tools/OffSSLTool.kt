@@ -1,4 +1,4 @@
-package com.lux.wallpaperapp.tools
+package com.nice.wallpaperapp.tools
 
 import okhttp3.OkHttpClient
 import java.security.SecureRandom

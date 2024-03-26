@@ -1,6 +1,5 @@
-package com.lux.wallpaperapp
+package com.nice.wallpaperapp
 
-import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -14,16 +13,14 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
-import com.lux.wallpaperapp.databinding.ActivityMainBinding
-import com.lux.wallpaperapp.fragment.ViewPagerFragment
-import com.lux.wallpaperapp.model.WallpaperModel
-import com.lux.wallpaperapp.tools.JsonFileManager
+import com.nice.wallpaperapp.databinding.ActivityMainBinding
+import com.nice.wallpaperapp.fragment.ViewPagerFragment
+import com.nice.wallpaperapp.model.WallpaperModel
+import com.nice.wallpaperapp.tools.JsonFileManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,10 +55,22 @@ class MainActivity : AppCompatActivity() {
             window.statusBarColor = Color.TRANSPARENT
         }
 
-        // 抽屉布局
-        initDrawView()
-        // 请求读写权限
-        writePermission()
+        // 绑定抽屉中的GOOGLE按钮
+        binding.layoutRate.setOnClickListener() {
+            viewUrl()
+        }
+        // 绑定抽屉中的分享按钮
+        binding.layoutShare.setOnClickListener() {
+            shareUrl()
+        }
+        // 绑定抽屉中的版本信息
+        val versionName = getVersionName()
+        binding.textAppVersion.text = versionName
+
+        // 打开抽屉
+        binding.imageMenu.setOnClickListener() {
+            binding.drawerParent.openDrawer(GravityCompat.START)
+        }
 
         binding.drawerParent.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
@@ -139,26 +148,6 @@ class MainActivity : AppCompatActivity() {
         binding.tabLayout.setupWithViewPager(binding.viewpager)
     }
 
-    private fun initDrawView() {
-        // 绑定抽屉中的GOOGLE按钮
-        binding.layoutRate.setOnClickListener() {
-            viewUrl()
-        }
-        // 绑定抽屉中的分享按钮
-        binding.layoutShare.setOnClickListener() {
-            shareUrl()
-        }
-        // 绑定抽屉中的版本信息
-        val versionName = getVersionName()
-        binding.textAppVersion.text = versionName
-
-        // 打开抽屉
-        binding.imageMenu.setOnClickListener() {
-            binding.drawerParent.openDrawer(GravityCompat.START)
-        }
-
-    }
-
     /**
      * 获取应用程序的版本名称
      * @return 应用程序的版本名称，如果获取失败则返回 null
@@ -199,26 +188,6 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.setData(Uri.parse(url))
         startActivity(intent)
-    }
-
-    /**
-     * 检查并请求外部存储读取和写入权限（仅适用于 Android 9.0 以下的版本）。
-     * 如果权限未被授予，则向用户请求相应权限。
-     */
-    private fun writePermission() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
-            val permissions = arrayOf<String>(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-            if (ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.WRITE_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                // 请求外部存储权限
-                ActivityCompat.requestPermissions(this, permissions, 15)
-            }
-        }
     }
 
     /**

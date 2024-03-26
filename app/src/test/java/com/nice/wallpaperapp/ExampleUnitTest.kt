@@ -1,4 +1,4 @@
-package com.lux.wallpaperapp
+package com.nice.wallpaperapp
 
 import org.junit.Test
 

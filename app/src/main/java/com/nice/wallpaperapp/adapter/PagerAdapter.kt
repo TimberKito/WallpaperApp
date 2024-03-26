@@ -1,4 +1,4 @@
-package com.lux.wallpaperapp.adapter
+package com.nice.wallpaperapp.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,14 +9,13 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.lux.wallpaperapp.R
-import com.lux.wallpaperapp.model.InfoModel
-import com.lux.wallpaperapp.model.WallpaperModel
-import com.lux.wallpaperapp.tools.OffSSLTool
+import com.nice.wallpaperapp.R
+import com.nice.wallpaperapp.model.InfoModel
+import com.nice.wallpaperapp.model.WallpaperModel
+import com.nice.wallpaperapp.tools.OffSSLTool
 import java.io.InputStream
 
 class PagerAdapter(
